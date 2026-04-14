@@ -5,7 +5,7 @@ from core.models import RiskFeature, OptimizerPrediction
 class AgenticMeshState(TypedDict):
     """
     The LangGraph State Dictionary. 
-    This is the 'shared memory' passed between ADK agents during execution.
+    This is the 'shared memory' passed between agents during execution.
     """
     # Original Request Data
     entity_name: str

@@ -1,13 +1,12 @@
 # Web Framework & APIs
 fastapi
 uvicorn
-websockets
 strawberry-graphql
 
 # Multi-Agent & LLM
 langgraph
 langchain-core
-langchain-community
+langchain-ollama
 mcp
 
 # Machine Learning & Data Science

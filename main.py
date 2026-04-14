@@ -15,12 +15,10 @@ from agents.supervisor import build_aegis_graph
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """
-    This is the proper way to handle heavy AI initializations.
-    It runs ONCE when the server starts.
+    Runs ONCE when the server starts.
     """
-    print("🚀 [1/3] Initializing Google ADK & LangGraph Mesh...")
+    print("🚀 [1/3] Initializing LangGraph Mesh...")
     try:
-        # We store the compiled mesh in the app state so routers can access it
         app.state.mesh = build_aegis_graph()
         print("✅ [2/3] Agentic Mesh Compiled Successfully.")
     except Exception as e:
@@ -35,7 +33,7 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     description="A multi-agent risk intelligence mesh powered by Google ADK, LangGraph, and local ML.",
     version="1.0.0",
-    lifespan=lifespan # Attach the lifespan manager here
+    lifespan=lifespan
 )
 
 app.add_middleware(
@@ -45,6 +43,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # Mount Routers
 app.include_router(rest_router, prefix=settings.API_V1_STR)
 app.include_router(ws_router)
@@ -61,5 +60,4 @@ async def health_check():
     }
 
 if __name__ == "__main__":
-    # RECOMMENDATION: Set reload=False on Windows until you confirm it works!
-    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=8080, reload=False)

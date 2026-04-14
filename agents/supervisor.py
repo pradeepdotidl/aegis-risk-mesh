@@ -6,7 +6,6 @@ from agents.optimizer import optimizer_node
 
 def supervisor_router(state: AgenticMeshState) -> str:
     """
-    The ADK Routing Logic.
     Decides if the graph should loop back for more research or finish.
     """
     confidence = state.get("prediction_confidence", 0.0)
