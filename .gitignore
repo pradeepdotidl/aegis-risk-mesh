@@ -1,0 +1,17 @@
+# Environments
+venv/
+.env
+__pycache__/
+*.pyc
+
+# Sensitive Google Keys
+service_account.json
+credentials/
+
+# Large Data & ML Models
+data/chroma_db/
+ml_engine/models/*.joblib
+
+# Local OS Files
+.DS_Store
+Thumbs.db

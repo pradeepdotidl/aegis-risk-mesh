@@ -1,0 +1,20 @@
+# Web Framework & APIs
+fastapi
+uvicorn
+websockets
+strawberry-graphql
+
+# Multi-Agent & LLM
+langgraph
+langchain-core
+langchain-community
+mcp
+
+# Machine Learning & Data Science
+scikit-learn
+joblib
+numpy
+pydantic-settings
+
+# Optional Vector DB for RAG (If you choose to implement the Chroma DB)
+chromadb
